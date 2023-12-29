@@ -6,7 +6,13 @@ dotenv.config({ path: './config.env' });
 
 const PORT = process.env.PORT;
 const MODE = process.env.NODE_ENV;
-const DB = process.env.DATA_BASE;
+// const DB = process.env.DATA_BASE;
+const DB = process.env.DATA_BASE_LIVE.replace(
+	'<password>',
+	process.env.DATABASE_PASSWORD,
+);
+
+console.log(DB);
 
 console.log('PORT IS HERE', PORT);
 mongoose
